@@ -13,7 +13,7 @@ const TaskList = async () => {
         {tasks.map((task) => (
           <div
             key={task._id}
-            className="flex flex-col p-4 text-black bg-white rounded-lg w-[293px]"
+            className="flex flex-col p-4 text-black bg-white rounded-lg w-[290px]"
           >
             <div className="space-y-2">
               <p className="text-base font-bold lg:text-lg">{task.title}</p>
