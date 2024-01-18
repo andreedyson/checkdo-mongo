@@ -1,9 +1,10 @@
 import React from "react";
 import EditTaskForm from "@/components/EditTaskForm";
+import { BASE_API_URL } from "@/constants";
 
 const getTaskById = async (id) => {
   try {
-    const res = await fetch(`http://localhost:3000/api/tasks/${id}`, {
+    const res = await fetch(`${BASE_API_URL}/api/tasks/${id}`, {
       cache: "no-store",
     });
 
