@@ -26,7 +26,7 @@ const EditTaskPage = async ({ params }) => {
 
   return (
     <EditTaskForm
-      id}
+      id={id}
       title={title}
       date={date}
       tags={tags}
