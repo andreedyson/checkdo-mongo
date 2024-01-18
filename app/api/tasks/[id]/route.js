@@ -2,8 +2,6 @@ import { connectToDB } from "@/lib/database";
 import { Task } from "@/models/tasks";
 import { NextResponse } from "next/server";
 
-export const revalidate = 0;
-
 export async function PUT(req, { params }) {
   const { id } = params;
   const {
