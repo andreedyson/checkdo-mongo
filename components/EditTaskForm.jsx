@@ -1,10 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { BASE_API_URL } from "@/constants";
 
 import { format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
-
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
@@ -13,7 +13,6 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-
 import {
   Select,
   SelectContent,
@@ -36,16 +35,13 @@ const EditTaskForm = ({ id, title, date, tags, status }) => {
     e.preventDefault();
 
     try {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_API_URL}/api/tasks/${id}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify({ newTitle, newDate, newTags, newStatus }),
-        }
-      );
+      const res = await fetch(`${BASE_API_URL}/api/tasks/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({ newTitle, newDate, newTags, newStatus }),
+      });
 
       if (!res.ok) {
         throw new Error("Failed to edit task");
