@@ -2,6 +2,8 @@ import { connectToDB } from "@/lib/database";
 import { Task } from "@/models/tasks";
 import { NextResponse } from "next/server";
 
+export const revalidate = 0;
+
 export async function POST(req) {
   const { title, date, tags, status } = await req.json();
 
