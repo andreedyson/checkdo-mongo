@@ -46,7 +46,7 @@ const TaskList = async () => {
                   {task.status}
                 </p>
                 <div className="flex items-center gap-4">
-                  <RemoveBtn id={task._id} />
+                  <RemoveBtn id={task._id.toString()} />
                   <Link href={`/edit-task/${task._id}`}>
                     <HiMiniPencilSquare size={20} />
                   </Link>
