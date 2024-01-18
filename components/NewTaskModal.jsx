@@ -40,13 +40,17 @@ const NewTaskModal = ({ isVisible, onClose }) => {
     }
 
     try {
-      const res = await fetch(`${BASE_API_URL}/api/tasks`, {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
+      const res = await fetch(
+        `${BASE_API_URL}/api/tasks`,
+        {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({ title, date, tags, status }),
         },
-        body: JSON.stringify({ title, date, tags, status }),
-      });
+        { next: { revalidate: 0 } }
+      );
 
       if (res.ok) {
         onClose();
