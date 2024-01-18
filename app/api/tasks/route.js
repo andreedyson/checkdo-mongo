@@ -1,3 +1,5 @@
+export const revalidate = 0;
+
 import { connectToDB } from "@/lib/database";
 import { Task } from "@/models/tasks";
 import { NextResponse } from "next/server";
