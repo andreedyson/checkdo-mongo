@@ -1,4 +1,3 @@
-import CompletedTaskList from "@/components/CompletedTaskList";
 import TaskList from "@/components/TaskList";
 import FloatingButton from "@/components/ui/FloatingButton";
 import ModalButton from "@/components/ui/ModalButton";
@@ -26,10 +25,6 @@ export default async function Home() {
           <div>
             <TaskList />
           </div>
-        </div>
-        <div className="flex flex-col items-center justify-center">
-          <h2 className="mb-4 text-white page-heading">Completed Task</h2>
-          <CompletedTaskList />
         </div>
       </div>
     </main>

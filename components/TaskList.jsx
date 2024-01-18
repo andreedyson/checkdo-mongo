@@ -13,7 +13,9 @@ const TaskList = async () => {
         {tasks.map((task) => (
           <div
             key={task._id}
-            className="flex flex-col p-4 text-black bg-white rounded-lg w-[290px]"
+            className={`flex flex-col p-4 text-black bg-white rounded-lg w-[293px] ${
+              task.status === "Completed" ? "bg-green-500" : ""
+            }`}
           >
             <div className="space-y-2">
               <p className="text-base font-bold lg:text-lg">{task.title}</p>
@@ -37,7 +39,7 @@ const TaskList = async () => {
                       : task.status === "In Progress"
                       ? "text-sky-500"
                       : task.status === "Completed"
-                      ? "text-green-500"
+                      ? "text-black-500"
                       : ""
                   }`}
                 >
