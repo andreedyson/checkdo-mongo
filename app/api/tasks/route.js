@@ -1,4 +1,5 @@
 export const revalidate = 0;
+export const dynamic = "force-dynamic"; // defaults to auto
 
 import { connectToDB } from "@/lib/database";
 import { Task } from "@/models/tasks";
