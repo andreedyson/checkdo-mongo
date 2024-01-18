@@ -2,11 +2,13 @@ import CompletedTaskList from "@/components/CompletedTaskList";
 import TaskList from "@/components/TaskList";
 import FloatingButton from "@/components/ui/FloatingButton";
 import ModalButton from "@/components/ui/ModalButton";
+import { BASE_API_URL } from "@/constants";
 
 import Link from "next/link";
 import { HiCheckCircle } from "react-icons/hi2";
 
 export default async function Home() {
+  if (!BASE_API_URL) return null;
   return (
     <main className="page-container mb-[60px] lg:mb-0">
       <Link
