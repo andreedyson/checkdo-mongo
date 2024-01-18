@@ -36,13 +36,16 @@ const EditTaskForm = ({ id, title, date, tags, status }) => {
     e.preventDefault();
 
     try {
-      const res = await fetch(`/api/tasks/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({ newTitle, newDate, newTags, newStatus }),
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_API_URL}/api/tasks/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({ newTitle, newDate, newTags, newStatus }),
+        }
+      );
 
       if (!res.ok) {
         throw new Error("Failed to edit task");
