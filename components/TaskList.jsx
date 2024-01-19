@@ -7,7 +7,7 @@ import { HiMiniPencilSquare } from "react-icons/hi2";
 import { BASE_API_URL } from "@/constants";
 
 const TaskList = async () => {
-  const tasks = await fetchTasks();
+  const { tasks } = await fetchTasks();
   return (
     <div>
       <div className="flex flex-wrap items-center justify-center gap-y-3 lg:justify-start gap-x-4 lg:gap-y-6">
@@ -25,7 +25,7 @@ const TaskList = async () => {
               </p>
               <p className="text-sm font-semibold">
                 {task.date
-                  .toLocaleDateString("en-US", {
+                  .toLocaleString("en-US", {
                     month: "short",
                     day: "numeric",
                     year: "numeric",
