@@ -1,19 +1,8 @@
-export const revalidate = 0;
-export const dynamic = "force-dynamic"; // defaults to auto
-
 import { connectToDB } from "@/lib/database";
 import { Task } from "@/models/tasks";
 import { NextResponse } from "next/server";
 
-export async function POST(req) {
-  const { title, date, tags, status } = await req.json();
-
-  await connectToDB();
-
-  await Task.create({ title, date, tags, status });
-
-  return NextResponse.json({ message: "Task Created" }, { status: 201 });
-}
+export const dynamic = "force-dynamic";
 
 export async function GET() {
   await connectToDB();
@@ -30,4 +19,14 @@ export async function DELETE(req) {
 
   await Task.findByIdAndDelete(id);
   return NextResponse.json({ message: "Task Deleted" }, { status: 200 });
+}
+
+export async function POST(req) {
+  const { title, date, tags, status } = await req.json();
+
+  await connectToDB();
+
+  await Task.create({ title, date, tags, status });
+
+  return NextResponse.json({ message: "Task Created" }, { status: 201 });
 }

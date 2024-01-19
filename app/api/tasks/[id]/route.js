@@ -4,6 +4,13 @@ import { NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic"; // defaults to auto
 
+export async function GET(req, { params }) {
+  const { id } = params;
+  await connectToDB();
+  const task = await Task.findOne({ _id: id });
+  return NextResponse.json({ task });
+}
+
 export async function PUT(req, { params }) {
   const { id } = params;
   const {
@@ -17,11 +24,4 @@ export async function PUT(req, { params }) {
 
   await Task.findByIdAndUpdate(id, { title, date, tags, status });
   return NextResponse.json({ message: "Task Updated" }, { status: 200 });
-}
-
-export async function GET(req, { params }) {
-  const { id } = params;
-  await connectToDB();
-  const task = await Task.findOne({ _id: id });
-  return NextResponse.json({ task });
 }

@@ -22,7 +22,7 @@ const RemoveBtn = ({ id }) => {
     }
   };
   return (
-    <button onClick={removeTask}>
+    <button onClick={removeTask} aria-label="Remove Button">
       <HiTrash size={20} />
     </button>
   );
