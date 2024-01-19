@@ -4,6 +4,23 @@ import RemoveBtn from "./RemoveBtn";
 import Link from "next/link";
 
 import { HiMiniPencilSquare } from "react-icons/hi2";
+import { BASE_API_URL } from "@/constants";
+
+const getTasks = async () => {
+  try {
+    const res = await fetch(`${BASE_API_URL}/api/tasks`, {
+      cache: "no-store",
+    });
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch tasks");
+    }
+
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 const TaskList = async () => {
   const tasks = await fetchTasks();
