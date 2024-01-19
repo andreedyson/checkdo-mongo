@@ -4,7 +4,6 @@ import RemoveBtn from "./RemoveBtn";
 import Link from "next/link";
 
 import { HiMiniPencilSquare } from "react-icons/hi2";
-import { BASE_API_URL } from "@/constants";
 
 const TaskList = async () => {
   const { tasks } = await fetchTasks();
@@ -24,8 +23,8 @@ const TaskList = async () => {
                 {task.tags}
               </p>
               <p className="text-sm font-semibold">
-                {task.date
-                  .toLocaleString("en-US", {
+                {new Date(task.date)
+                  .toLocaleDateString("en-US", {
                     month: "short",
                     day: "numeric",
                     year: "numeric",
@@ -40,7 +39,7 @@ const TaskList = async () => {
                       : task.status === "In Progress"
                       ? "text-sky-500"
                       : task.status === "Completed"
-                      ? "text-black-500"
+                      ? "text-green-500"
                       : ""
                   }`}
                 >
